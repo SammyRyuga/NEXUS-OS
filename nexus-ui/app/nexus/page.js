@@ -30,7 +30,7 @@ import {
   Zap,
 } from "lucide-react";
 
-const API_BASE = "http://localhost:8000";
+const API_BASE = "https://databases-piece-hydrogen-woods.trycloudflare.com";
 const WS_URL = API_BASE.replace(/^http/, "ws") + "/ws";
 
 const EMPTY_DATA = {

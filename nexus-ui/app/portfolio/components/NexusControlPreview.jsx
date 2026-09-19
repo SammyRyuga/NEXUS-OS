@@ -9,7 +9,7 @@ import {
 } from "motion/react";
 
 const API_BASE =
-    "https://databases-piece-hydrogen-woods.trycloudflare.com";
+    "https://jefferson-economic-altered-dublin.trycloudflare.com";
 
 const WS_URL = API_BASE.replace(/^http/, "ws") + "/ws";
 

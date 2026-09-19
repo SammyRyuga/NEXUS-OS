@@ -345,7 +345,7 @@ export default function NexusIntro() {
           {/* BUTTON */}
           <div className="mt-10 flex items-center justify-center">
             <a
-              href="#nexus-experience"
+              href="#nexus"
               className="group inline-flex items-center gap-3 rounded-lg border border-cyan-500/20 bg-cyan-500/[0.04] px-4 py-2.5 font-mono text-[8px] uppercase tracking-[0.18em] text-cyan-300 transition hover:border-cyan-400/40 hover:bg-cyan-500/[0.08]"
             >
               ENTER CONTROL PLANE

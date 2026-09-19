@@ -30,8 +30,9 @@ import {
   Zap,
 } from "lucide-react";
 
-const API_BASE = "https://databases-piece-hydrogen-woods.trycloudflare.com";
-const WS_URL = API_BASE.replace(/^http/, "ws") + "/ws";
+const TELEMETRY_BASE = "https://jefferson-economic-altered-dublin.trycloudflare.com";
+const CONTROL_BASE = "http://127.0.0.1:8000";
+const WS_URL = TELEMETRY_BASE.replace(/^http/, "ws") + "/ws";
 
 const EMPTY_DATA = {
   system: {
@@ -1053,6 +1054,7 @@ function CommandCentre({
                 strokeWidth="2"
                 strokeLinecap="round"
                 strokeDasharray={circumference}
+                initial={{ strokeDashoffset: circumference }}
                 animate={{
                   strokeDashoffset: dashOffset,
                 }}
@@ -1277,15 +1279,16 @@ export default function Home() {
       setActionState(key);
       setActionMessage(null);
 
-      const response = await fetch(
-        `${API_BASE}/api/process/${pid}/${action}`,
-        {
-          method: "POST",
-        },
-      );
+      const controlUrl = `${CONTROL_BASE}/api/process/${pid}/${action}`;
+      console.log("NEXUS CONTROL:", controlUrl);
+
+      const response = await fetch(controlUrl, {
+        method: "POST",
+      });
 
       if (!response.ok) {
-        throw new Error(`HTTP ${response.status}`);
+        const body = await response.text();
+        throw new Error(`HTTP ${response.status}: ${body}`);
       }
 
       const labels = {

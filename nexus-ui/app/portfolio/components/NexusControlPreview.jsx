@@ -9,7 +9,7 @@ import {
 } from "motion/react";
 
 const API_BASE =
-  process.env.NEXT_PUBLIC_NEXUS_API_URL || "http://localhost:8000";
+    "https://databases-piece-hydrogen-woods.trycloudflare.com";
 
 const WS_URL = API_BASE.replace(/^http/, "ws") + "/ws";
 
